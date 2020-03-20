@@ -39,6 +39,29 @@ for country_number in range(len(table_data)):
     
     if (country_name == 'USA'):
         country_name = 'United States of America'
+    if (country_name == 'S. Korea'):
+        country_name = 'South Korea'
+    if (country_name == 'UK'):
+        country_name = 'United Kingdom'
+    if (country_name == 'UAE'):
+        country_name = 'United Arab Emirates'
+    if (country_name == 'Eswatini'):
+        country_name = 'eSwatini'
+    if (country_name == 'Dominican Republic'):
+        country_name = 'Dominican Rep.'
+    if (country_name == 'North Macedonia'):
+        country_name = 'Macedonia'
+    if (country_name == 'Bosnia and Herzegovina'):
+        country_name = 'Bosnia and Herz.'
+    if (country_name == 'Brunei '):
+        country_name = 'Brunei'
+    if (country_name == 'DRC'):
+        country_name = 'Dem. Rep. Congo'
+    if (country_name == 'Ivory Coast'):
+        country_name = "Côte d'Ivoire"
+    if (country_name == 'Equatorial Guinea'):
+        country_name = 'Eq. Guinea'
+            
     country_names.append(country_name)
 
     # Country total cases
@@ -103,6 +126,8 @@ prob1s = np.array(prob1s)
 prob2s = np.array(prob2s)
 prob3s = np.array(prob3s)
 prob4s = np.array(prob4s)
+print(np.sort(country_names))
+print(len(country_names))
 
 #############################################################################################################
 
@@ -147,7 +172,8 @@ country_lat, country_lon = world.centroid.x.values, world.centroid.y.values
 
 scale = 1/max(total_cases)
 
-print(world_country_names)
+print(np.sort(world_country_names))
+print(len(world_country_names))
 
 for country_num in range(len(country_names)):
     try:
@@ -161,5 +187,6 @@ legend_elements = [Line2D([],[], marker="o", color="k",linestyle="None", label="
 
 ax.legend(handles=legend_elements, loc="center left")
 plt.title("Most recent pie map of COVID19 cases around the world")
+ax.text(-150,-75,"Data from : "+url)
 plt.savefig("COVID19_pie_map.pdf")
 
