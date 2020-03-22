@@ -193,5 +193,5 @@ legend_elements = [Line2D([],[], marker="o", color="k",linestyle="None", label="
 ax.legend(handles=legend_elements, loc="center left")
 plt.title("Most recent pie map of COVID19 cases around the world")
 ax.text(-150,-75,"Data from : "+url+" Last updated : "+str(now))
-plt.savefig("COVID19_pie_map.pdf")
+plt.savefig("COVID19_pie_map.png")
 
