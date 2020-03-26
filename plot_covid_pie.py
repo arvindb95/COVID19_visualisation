@@ -7,6 +7,11 @@ import numpy as np
 import matplotlib.transforms as transforms
 import matplotlib.patches as mpatches
 from matplotlib.lines import Line2D
+from datetime import datetime
+from astropy.time import Time
+
+now = Time.now()
+print(str(now))
 
 # Get latest data from worldometers.info
 url = 'https://www.worldometers.info/coronavirus/#countries'
@@ -187,6 +192,6 @@ legend_elements = [Line2D([],[], marker="o", color="k",linestyle="None", label="
 
 ax.legend(handles=legend_elements, loc="center left")
 plt.title("Most recent pie map of COVID19 cases around the world")
-ax.text(-150,-75,"Data from : "+url)
-plt.savefig("COVID19_pie_map.pdf")
+ax.text(-150,-75,"Data from : "+url+" Last updated : "+str(now))
+plt.savefig("COVID19_pie_map.png")
 
